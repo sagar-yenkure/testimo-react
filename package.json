@@ -23,6 +23,14 @@
     "tailwindcss",
     "ui-library"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sagar-yenkure/testimo-react"
+  },
+  "bugs": {
+    "url": "https://github.com/sagar-yenkure/testimo-react/issues"
+  },
+  "homepage": "https://testimo-love.vercel.app",
   "devDependencies": {
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-typescript": "^12.1.4",
