@@ -1,15 +1,8 @@
 export type TESTIMONIALS_TYPE = "TEXT" | "VIDEO";
 
-export type TestimonialTheme = "light" | "dark" | "gradient" | "minimal";
+export type TESTIMONIALS_THEME = "light" | "dark" | "gradient" | "minimal"
 
-export type TESTIMONIAL_STATUS =
-  | "NORMAL"
-  | "HIGHLIGHTED"
-  | "LIKED"
-  | "SPAM"
-  | "ARCHIVED";
-
-export type TestimonialVariant =
+export type TESTIMONIALS_VARIANT =
   | "masonry"
   | "scroll"
   | "carousel"
@@ -28,16 +21,16 @@ export interface Testimonial {
   company?: string;
   socialLink?: string;
   isUserConsent: boolean;
-  status: TESTIMONIAL_STATUS;
-  createdAt: Date;
-  updatedAt: Date;
   collectionId: string;
 }
 
+export type DATA_TYPE = Omit<Testimonial, "id" | "collectionId" | "isUserConsent">;
+
 export interface TestimonialsProps {
-  collectionId: string;
-  variant?: TestimonialVariant;
-  theme?: TestimonialTheme;
+  data?: DATA_TYPE[];
+  collectionId?: string;
+  variant?: TESTIMONIALS_VARIANT;
+  theme?: TESTIMONIALS_THEME;
   className?: string;
   columns?: {
     sm?: number;

@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { TestimonialCard } from "./TestimonialCard";
 
 interface MasonryLayoutProps extends Omit<TestimonialsProps, "collectionId"> {
-  testimonials: Testimonial[];
+  testimonials: Omit<Testimonial, "id" | "collectionId" | "isUserConsent">[];
 }
 
 export function MasonryLayout({
@@ -52,7 +52,7 @@ export function MasonryLayout({
       >
         {testimonials.map((testimonial, index) => (
           <TestimonialCard
-            key={testimonial.id}
+            key={`${testimonial.email}-${index}`}
             testimonial={testimonial}
             theme={theme}
             index={index}
@@ -90,7 +90,7 @@ export function MasonryLayout({
         <div key={columnIndex} className="flex-1 space-y-6">
           {column.map((testimonial, index) => (
             <TestimonialCard
-              key={testimonial.id}
+              key={`${testimonial.email}-${index}`}
               testimonial={testimonial}
               theme={theme}
               index={columnIndex * column.length + index}

@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 import { Button } from "../ui/button";
 
 interface CarouselLayoutProps extends Omit<TestimonialsProps, "collectionId"> {
-  testimonials: Testimonial[];
+  testimonials: Omit<Testimonial, "id" | "collectionId" | "isUserConsent">[];
 }
 export function CarouselLayout({
   testimonials,
@@ -119,7 +119,7 @@ export function CarouselLayout({
           >
             {visibleTestimonials.map((testimonial, index) => (
               <TestimonialCard
-                key={`${testimonial.id}-${currentIndex}`}
+                key={`${testimonial.email}-${currentIndex}`}
                 testimonial={testimonial}
                 theme={theme}
                 index={index}

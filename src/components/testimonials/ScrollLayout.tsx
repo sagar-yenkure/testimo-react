@@ -6,7 +6,7 @@ import { Testimonial, TestimonialsProps } from "../../types";
 import { cn } from "../../lib/utils";
 
 interface ScrollLayoutProps extends Omit<TestimonialsProps, "collectionId"> {
-  testimonials: Testimonial[];
+  testimonials: Omit<Testimonial, "id" | "collectionId" | "isUserConsent">[];
 }
 
 export function ScrollLayout({
@@ -24,7 +24,7 @@ export function ScrollLayout({
     CARD_WIDTH * testimonials.length + 24 * testimonials.length; // card + gap
 
   return (
-    <div className={cn("relative overflow-hidden", className)}>
+    <div className={cn("", className)}>
       {/* Gradient overlays */}
       <div className="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-6 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
@@ -42,7 +42,7 @@ export function ScrollLayout({
       >
         {items.map((testimonial, index) => (
           <div
-            key={`${testimonial.id}-${index}`}
+            key={`${testimonial.email}-${index}`}
             className="flex-shrink-0 w-72 sm:w-80 md:w-96"
           >
             <TestimonialCard

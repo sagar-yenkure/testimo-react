@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Testimonial } from "../types";
 
 export function useFetch<T = Testimonial[]>(
-  url: string,
+  url: string | null,
   options?: RequestInit
 ) {
   const [data, setData] = useState<T | null>(null);
@@ -10,7 +10,10 @@ export function useFetch<T = Testimonial[]>(
   const [error, setError] = useState<{ message: string } | null>(null);
 
   useEffect(() => {
-    if (!url) return;
+    if (!url) {
+      setLoading(false);
+      return;
+    }
 
     let cancelled = false;
 
@@ -36,7 +39,7 @@ export function useFetch<T = Testimonial[]>(
     return () => {
       cancelled = true;
     };
-  }, [url]);
+  }, [url, options]);
 
   return { data, loading, error };
 }

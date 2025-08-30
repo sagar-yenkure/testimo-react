@@ -6,7 +6,7 @@ import { TestimonialCard } from "./TestimonialCard";
 import { motion } from "framer-motion";
 
 interface ListLayoutProps extends Omit<TestimonialsProps, "collectionId"> {
-  testimonials: Testimonial[];
+  testimonials: Omit<Testimonial, "id" | "collectionId" | "isUserConsent">[];
 }
 
 export function ListLayout({
@@ -18,7 +18,7 @@ export function ListLayout({
     <div className={cn("space-y-4 ", className)}>
       {testimonials.map((testimonial, index) => (
         <motion.div
-          key={testimonial.id}
+          key={`${testimonial.email}-${index}`}
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-50px" }}

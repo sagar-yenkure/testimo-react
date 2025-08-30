@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "../ui/card";
 
 interface TestimonialCardProps {
-  testimonial: Testimonial;
+  testimonial: Omit<Testimonial, "id" | "collectionId" | "isUserConsent">;
   theme?: "light" | "dark" | "gradient" | "minimal";
   index?: number;
   variant?: "default" | "compact" | "detailed";
