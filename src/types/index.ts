@@ -40,4 +40,10 @@ export interface TestimonialsProps {
   variant?: TestimonialVariant;
   theme?: TestimonialTheme;
   className?: string;
+  columns?: {
+    sm?: number;
+    md?: number;
+    lg?: number;
+    xl?: number;
+  };
 }

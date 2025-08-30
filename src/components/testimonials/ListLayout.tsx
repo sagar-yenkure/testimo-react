@@ -13,7 +13,6 @@ export function ListLayout({
   testimonials,
   theme = "light",
   className,
-  showStars = true,
 }: ListLayoutProps) {
   return (
     <div className={cn("space-y-4 ", className)}>
