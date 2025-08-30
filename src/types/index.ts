@@ -10,7 +10,6 @@ export type TESTIMONIAL_STATUS =
   | "ARCHIVED";
 
 export type TestimonialVariant =
-  | "grid"
   | "masonry"
   | "scroll"
   | "carousel"

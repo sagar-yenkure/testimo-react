@@ -13,7 +13,7 @@ import { TestimonialCardError } from "./TestimonialCardError";
 
 const Testimonials = ({
   collectionId,
-  variant = "grid",
+  variant = "masonry",
   theme = "light",
   className,
 }: TestimonialsProps) => {
