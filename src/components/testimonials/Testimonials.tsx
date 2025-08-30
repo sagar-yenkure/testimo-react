@@ -6,7 +6,6 @@ import { MasonryLayout } from "./MasonryLayout";
 import { CarouselLayout } from "./CarouselLayout";
 import { ScrollLayout } from "./ScrollLayout";
 import { ListLayout } from "./ListLayout";
-import { GridLayout } from "./GridLayout";
 import { useFetch } from "../../hooks/useFetch";
 import { API_BASE } from "../../constants/t";
 import { TestimonialCardSkeleton } from "./TestimonialCardSkeleton";
@@ -56,17 +55,15 @@ const Testimonials = ({
     };
 
     switch (variant) {
-      case "masonry":
-        return <MasonryLayout {...commonProps} />;
       case "carousel":
         return <CarouselLayout {...commonProps} />;
       case "scroll":
         return <ScrollLayout {...commonProps} />;
       case "list":
         return <ListLayout {...commonProps} />;
-      case "grid":
+      case "masonry":
       default:
-        return <GridLayout {...commonProps} />;
+        return <MasonryLayout {...commonProps} />;
     }
   };
 

@@ -1,10 +1,20 @@
 export type TESTIMONIALS_TYPE = "TEXT" | "VIDEO";
+
+export type TestimonialTheme = "light" | "dark" | "gradient" | "minimal";
+
 export type TESTIMONIAL_STATUS =
   | "NORMAL"
   | "HIGHLIGHTED"
   | "LIKED"
   | "SPAM"
   | "ARCHIVED";
+
+export type TestimonialVariant =
+  | "grid"
+  | "masonry"
+  | "scroll"
+  | "carousel"
+  | "list";
 
 export interface Testimonial {
   id: string;
@@ -25,25 +35,9 @@ export interface Testimonial {
   collectionId: string;
 }
 
-export type TestimonialVariant =
-  | "grid"
-  | "masonry"
-  | "scroll"
-  | "carousel"
-  | "list";
-export type TestimonialTheme = "light" | "dark" | "gradient" | "minimal";
-
 export interface TestimonialsProps {
   collectionId: string;
   variant?: TestimonialVariant;
   theme?: TestimonialTheme;
   className?: string;
-  showStars?: boolean;
-  autoPlay?: boolean;
-  columns?: {
-    sm?: number;
-    md?: number;
-    lg?: number;
-    xl?: number;
-  };
 }
