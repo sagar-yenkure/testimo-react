@@ -1,10 +1,3 @@
-
-# Project Title
-
-A brief description of what this project does and who it's for
-
-
-
 # Testimo React  
 
 A modern, customizable testimonial collection and display component library for SaaS apps, built with **React**, **Tailwind CSS**, and **ShadCN UI**.  
